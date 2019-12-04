@@ -1,0 +1,744 @@
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (12.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (12.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMovies (20191204012546)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "movies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "director" varchar, "run_time" varchar, "release_date" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191204012546"]]
+  [1m[35m (13.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-12-04 01:25:52.847483"], ["updated_at", "2019-12-04 01:25:52.847483"]]
+  [1m[35m (13.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2019-12-03 22:39:55 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 8.3ms | Allocations: 2529)
+Completed 500 Internal Server Error in 4216ms (ActiveRecord: 0.5ms | Allocations: 3920028)
+
+
+  
+ActionView::Template::Error (The asset "application.js" is not present in the asset pipeline.):
+     6:    <%= csp_meta_tag %>
+     7:  
+     8:    <%= stylesheet_link_tag    'application', media: 'all' %>
+     9:    <%= javascript_include_tag 'application' %>
+    10:  </head>
+    11:  
+    12:  <body>
+  
+app/views/layouts/application.html.erb:9
+Started GET "/" for 127.0.0.1 at 2019-12-03 22:41:32 -0300
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1431)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/gustavo/Workspace/Cinema/Cinema/public/packs
+[Webpacker] Hash: 53154d7baad00c6a1252
+Version: webpack 4.41.2
+Time: 1621ms
+Built at: 12/03/2019 11:41:36 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-0b67a3cc2fcde6055024.js    124 KiB  application  [emitted] [immutable]  application
+js/application-0b67a3cc2fcde6055024.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-0b67a3cc2fcde6055024.js js/application-0b67a3cc2fcde6055024.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 3387ms (Views: 3386.2ms | ActiveRecord: 0.1ms | Allocations: 276065)
+
+
+Started GET "/?locale=en" for 127.0.0.1 at 2019-12-03 22:41:39 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1056)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 140ms (Views: 139.3ms | ActiveRecord: 0.2ms | Allocations: 252620)
+
+
+Started GET "/?locale=pt-BR" for 127.0.0.1 at 2019-12-03 22:41:40 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"locale"=>"pt-BR"}
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 959)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 150ms (Views: 149.2ms | ActiveRecord: 0.1ms | Allocations: 253077)
+
+
+Started GET "/?locale=en" for 127.0.0.1 at 2019-12-03 22:41:42 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1037)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 132ms (Views: 130.8ms | ActiveRecord: 0.1ms | Allocations: 252618)
+
+
+Started GET "/?locale=pt-BR" for 127.0.0.1 at 2019-12-03 22:41:43 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"locale"=>"pt-BR"}
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 11.9ms | Allocations: 959)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 201ms (Views: 197.2ms | ActiveRecord: 0.6ms | Allocations: 252552)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2019-12-03 22:41:44 -0300
+Processing by MoviesController#new as HTML
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/_form.html.erb (Duration: 29.5ms | Allocations: 5129)
+  Rendered movies/new.html.erb within layouts/application (Duration: 32.4ms | Allocations: 5597)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 204ms (Views: 189.5ms | ActiveRecord: 0.8ms | Allocations: 261504)
+
+
+Started GET "/movies/new?locale=en" for 127.0.0.1 at 2019-12-03 22:41:47 -0300
+Processing by MoviesController#new as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/_form.html.erb (Duration: 1.5ms | Allocations: 1122)
+  Rendered movies/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1400)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 150ms (Views: 148.7ms | ActiveRecord: 0.0ms | Allocations: 253092)
+
+
+Started GET "/movies/new?locale=pt-BR" for 127.0.0.1 at 2019-12-03 22:41:49 -0300
+Processing by MoviesController#new as HTML
+  Parameters: {"locale"=>"pt-BR"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/_form.html.erb (Duration: 2.8ms | Allocations: 1038)
+  Rendered movies/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1198)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 143ms (Views: 142.0ms | ActiveRecord: 0.0ms | Allocations: 252790)
+
+
+Started GET "/movies/new?locale=en" for 127.0.0.1 at 2019-12-03 22:41:51 -0300
+Processing by MoviesController#new as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/_form.html.erb (Duration: 2.3ms | Allocations: 1122)
+  Rendered movies/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1288)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 206ms (Views: 205.2ms | ActiveRecord: 0.0ms | Allocations: 252868)
+
+
+Started GET "/movies/new?locale=pt-BR" for 127.0.0.1 at 2019-12-03 22:41:53 -0300
+Processing by MoviesController#new as HTML
+  Parameters: {"locale"=>"pt-BR"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/_form.html.erb (Duration: 1.6ms | Allocations: 1038)
+  Rendered movies/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1198)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 142ms (Views: 140.9ms | ActiveRecord: 0.0ms | Allocations: 252788)
+
+
+Started GET "/movies/new?locale=en" for 127.0.0.1 at 2019-12-03 22:41:54 -0300
+Processing by MoviesController#new as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/_form.html.erb (Duration: 1.5ms | Allocations: 1122)
+  Rendered movies/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1288)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 132ms (Views: 131.6ms | ActiveRecord: 0.0ms | Allocations: 252861)
+
+
+Started GET "/movies/new?locale=pt-BR" for 127.0.0.1 at 2019-12-03 22:41:55 -0300
+Processing by MoviesController#new as HTML
+  Parameters: {"locale"=>"pt-BR"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/_form.html.erb (Duration: 4.5ms | Allocations: 1038)
+  Rendered movies/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1198)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 151ms (Views: 149.9ms | ActiveRecord: 0.0ms | Allocations: 252787)
+
+
+Started POST "/movies" for 127.0.0.1 at 2019-12-03 22:41:56 -0300
+Processing by MoviesController#create as HTML
+  Parameters: {"authenticity_token"=>"h3p9aHw7RqeU3Iayr2/XD2nyn9cjiyD8whZ0FRWBGclOOcgKZWZ/JKhq0ufpZdv5wLfeia6M3ZBLkwS1DEG2/Q==", "movie"=>{"name"=>"", "director"=>"", "run_time"=>"", "release_date"=>""}, "commit"=>"Criar Filme"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/movies_controller.rb:30:in `block in create'
+  [1m[36mMovie Create (0.6ms)[0m  [1m[32mINSERT INTO "movies" ("name", "director", "run_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", ""], ["director", ""], ["run_time", ""], ["created_at", "2019-12-04 01:41:56.431792"], ["updated_at", "2019-12-04 01:41:56.431792"]]
+  ↳ app/controllers/movies_controller.rb:30:in `block in create'
+  [1m[35m (26.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/movies_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/movies/1
+Completed 302 Found in 45ms (ActiveRecord: 27.0ms | Allocations: 3939)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2019-12-03 22:41:56 -0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:67:in `set_movie'
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1271)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms | Allocations: 2883)
+
+
+  
+ActionView::Template::Error (Object must be a Date, DateTime or Time object. nil given.):
+    17:  
+    18: <p>
+    19:  <strong><%= translate 'activerecord.attributes.movie.release_date'%>:</strong>
+    20:  <%= localize(@movie.release_date, format: :long) %>
+    21: </p>
+    22:  
+    23: <%= link_to "#{translate 'actions.edit'}", edit_movie_path(@movie) %> |
+  
+app/views/movies/show.html.erb:20
+Started POST "/movies" for 127.0.0.1 at 2019-12-03 22:42:35 -0300
+Processing by MoviesController#create as HTML
+  Parameters: {"authenticity_token"=>"h3p9aHw7RqeU3Iayr2/XD2nyn9cjiyD8whZ0FRWBGclOOcgKZWZ/JKhq0ufpZdv5wLfeia6M3ZBLkwS1DEG2/Q==", "movie"=>{"name"=>"", "director"=>"", "run_time"=>"", "release_date"=>""}, "commit"=>"Criar Filme"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/movies_controller.rb:30:in `block in create'
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("name", "director", "run_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", ""], ["director", ""], ["run_time", ""], ["created_at", "2019-12-04 01:42:35.081369"], ["updated_at", "2019-12-04 01:42:35.081369"]]
+  ↳ app/controllers/movies_controller.rb:30:in `block in create'
+  [1m[35m (10.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/movies_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/movies/2
+Completed 302 Found in 19ms (ActiveRecord: 11.3ms | Allocations: 3703)
+
+
+Started GET "/movies/2" for 127.0.0.1 at 2019-12-03 22:42:35 -0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:67:in `set_movie'
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 977)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 1994)
+
+
+  
+ActionView::Template::Error (Object must be a Date, DateTime or Time object. nil given.):
+    17:  
+    18: <p>
+    19:  <strong><%= translate 'activerecord.attributes.movie.release_date'%>:</strong>
+    20:  <%= localize(@movie.release_date, format: :long) %>
+    21: </p>
+    22:  
+    23: <%= link_to "#{translate 'actions.edit'}", edit_movie_path(@movie) %> |
+  
+app/views/movies/show.html.erb:20
+Started POST "/movies" for 127.0.0.1 at 2019-12-03 22:42:48 -0300
+Processing by MoviesController#create as HTML
+  Parameters: {"authenticity_token"=>"h3p9aHw7RqeU3Iayr2/XD2nyn9cjiyD8whZ0FRWBGclOOcgKZWZ/JKhq0ufpZdv5wLfeia6M3ZBLkwS1DEG2/Q==", "movie"=>{"name"=>"FIlme", "director"=>"tal tal", "run_time"=>"120s", "release_date"=>"2019-12-12"}, "commit"=>"Criar Filme"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/movies_controller.rb:30:in `block in create'
+  [1m[36mMovie Create (0.6ms)[0m  [1m[32mINSERT INTO "movies" ("name", "director", "run_time", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "FIlme"], ["director", "tal tal"], ["run_time", "120s"], ["release_date", "2019-12-12"], ["created_at", "2019-12-04 01:42:48.407650"], ["updated_at", "2019-12-04 01:42:48.407650"]]
+  ↳ app/controllers/movies_controller.rb:30:in `block in create'
+  [1m[35m (11.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/movies_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/movies/3
+Completed 302 Found in 46ms (ActiveRecord: 12.2ms | Allocations: 3698)
+
+
+Started GET "/movies/3" for 127.0.0.1 at 2019-12-03 22:42:48 -0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:67:in `set_movie'
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 285)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 158ms (Views: 156.3ms | ActiveRecord: 0.1ms | Allocations: 252551)
+
+
+Started GET "/movies/3?locale=en" for 127.0.0.1 at 2019-12-03 22:42:52 -0300
+Processing by MoviesController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"3"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:67:in `set_movie'
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1956)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 140ms (Views: 138.4ms | ActiveRecord: 0.1ms | Allocations: 254061)
+
+
+Started GET "/movies/3?locale=pt-BR" for 127.0.0.1 at 2019-12-03 22:42:53 -0300
+Processing by MoviesController#show as HTML
+  Parameters: {"locale"=>"pt-BR", "id"=>"3"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:67:in `set_movie'
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 255)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 146ms (Views: 143.8ms | ActiveRecord: 0.1ms | Allocations: 252341)
+
+
+Started GET "/movies/3?locale=en" for 127.0.0.1 at 2019-12-03 22:42:54 -0300
+Processing by MoviesController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"3"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:67:in `set_movie'
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1947)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 149ms (Views: 145.5ms | ActiveRecord: 0.2ms | Allocations: 253973)
+
+
+Started GET "/movies/3?locale=pt-BR" for 127.0.0.1 at 2019-12-03 22:42:55 -0300
+Processing by MoviesController#show as HTML
+  Parameters: {"locale"=>"pt-BR", "id"=>"3"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:67:in `set_movie'
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 255)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 198ms (Views: 196.6ms | ActiveRecord: 0.1ms | Allocations: 252344)
+
+
+Started GET "/movies/3?locale=en" for 127.0.0.1 at 2019-12-03 22:45:53 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"3"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:67:in `set_movie'
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2457)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1032ms (Views: 1015.1ms | ActiveRecord: 0.8ms | Allocations: 1355816)
+
+
+Started GET "/movies/3?locale=en" for 127.0.0.1 at 2019-12-03 22:45:55 -0300
+Processing by MoviesController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"3"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:67:in `set_movie'
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1955)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.1ms | Allocations: 6148)
+
+
+Started GET "/movies/3?locale=en" for 127.0.0.1 at 2019-12-03 22:46:05 -0300
+Processing by MoviesController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"3"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:67:in `set_movie'
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1948)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 265ms (Views: 262.4ms | ActiveRecord: 0.1ms | Allocations: 287629)
+
+
+Started GET "/movies" for 127.0.0.1 at 2019-12-03 22:48:25 -0300
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 20.8ms | Allocations: 4958)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.4ms | Allocations: 5594)
+
+
+  
+ActionView::Template::Error (Object must be a Date, DateTime or Time object. nil given.):
+    20:        <td><%= movie.name %></td>
+    21:        <td><%= movie.director %></td>
+    22:        <td><%= movie.run_time %></td>
+    23:        <td><%= localize(movie.release_date, format: :long) %></td>
+    24:        <td><%= link_to "#{translate 'actions.show'}", movie %></td>
+    25:        <td><%= link_to "#{translate 'actions.edit'}", edit_movie_path(movie) %></td>
+    26:        <td><%= link_to "#{translate 'actions.destroy'}", movie, method: :delete, data: { confirm: "#{translate 'confirm'}" } %></td>
+  
+app/views/movies/index.html.erb:23
+app/views/movies/index.html.erb:18
+Started GET "/movies/3?locale=pt-BR" for 127.0.0.1 at 2019-12-03 22:48:53 -0300
+Processing by MoviesController#show as HTML
+  Parameters: {"locale"=>"pt-BR", "id"=>"3"}
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:67:in `set_movie'
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 277)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 160ms (Views: 154.3ms | ActiveRecord: 0.5ms | Allocations: 252974)
+
+
+Started GET "/movies" for 127.0.0.1 at 2019-12-03 22:48:58 -0300
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 1835)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.6ms | Allocations: 2452)
+
+
+  
+ActionView::Template::Error (Object must be a Date, DateTime or Time object. nil given.):
+    20:        <td><%= movie.name %></td>
+    21:        <td><%= movie.director %></td>
+    22:        <td><%= movie.run_time %></td>
+    23:        <td><%= localize(movie.release_date, format: :long) %></td>
+    24:        <td><%= link_to "#{translate 'actions.show'}", movie %></td>
+    25:        <td><%= link_to "#{translate 'actions.edit'}", edit_movie_path(movie) %></td>
+    26:        <td><%= link_to "#{translate 'actions.destroy'}", movie, method: :delete, data: { confirm: "#{translate 'confirm'}" } %></td>
+  
+app/views/movies/index.html.erb:23
+app/views/movies/index.html.erb:18
+Started GET "/movies/3" for 127.0.0.1 at 2019-12-03 22:49:02 -0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:67:in `set_movie'
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 255)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 139ms (Views: 136.6ms | ActiveRecord: 0.1ms | Allocations: 252333)
+
+
+Started GET "/movies/new?locale=pt-BR" for 127.0.0.1 at 2019-12-03 22:49:06 -0300
+Processing by MoviesController#new as HTML
+  Parameters: {"locale"=>"pt-BR"}
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/_form.html.erb (Duration: 10.8ms | Allocations: 4417)
+  Rendered movies/new.html.erb within layouts/application (Duration: 12.3ms | Allocations: 4884)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 156ms (Views: 154.5ms | ActiveRecord: 0.0ms | Allocations: 256531)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-03 22:49:16 -0300
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1835)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 2336)
+
+
+  
+ActionView::Template::Error (Object must be a Date, DateTime or Time object. nil given.):
+    20:        <td><%= movie.name %></td>
+    21:        <td><%= movie.director %></td>
+    22:        <td><%= movie.run_time %></td>
+    23:        <td><%= localize(movie.release_date, format: :long) %></td>
+    24:        <td><%= link_to "#{translate 'actions.show'}", movie %></td>
+    25:        <td><%= link_to "#{translate 'actions.edit'}", edit_movie_path(movie) %></td>
+    26:        <td><%= link_to "#{translate 'actions.destroy'}", movie, method: :delete, data: { confirm: "#{translate 'confirm'}" } %></td>
+  
+app/views/movies/index.html.erb:23
+app/views/movies/index.html.erb:18
+Started GET "/" for 127.0.0.1 at 2019-12-03 22:49:18 -0300
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1825)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms | Allocations: 2318)
+
+
+  
+ActionView::Template::Error (Object must be a Date, DateTime or Time object. nil given.):
+    20:        <td><%= movie.name %></td>
+    21:        <td><%= movie.director %></td>
+    22:        <td><%= movie.run_time %></td>
+    23:        <td><%= localize(movie.release_date, format: :long) %></td>
+    24:        <td><%= link_to "#{translate 'actions.show'}", movie %></td>
+    25:        <td><%= link_to "#{translate 'actions.edit'}", edit_movie_path(movie) %></td>
+    26:        <td><%= link_to "#{translate 'actions.destroy'}", movie, method: :delete, data: { confirm: "#{translate 'confirm'}" } %></td>
+  
+app/views/movies/index.html.erb:23
+app/views/movies/index.html.erb:18
+Started GET "/movies" for 127.0.0.1 at 2019-12-03 22:49:26 -0300
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1823)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 2315)
+
+
+  
+ActionView::Template::Error (Object must be a Date, DateTime or Time object. nil given.):
+    20:        <td><%= movie.name %></td>
+    21:        <td><%= movie.director %></td>
+    22:        <td><%= movie.run_time %></td>
+    23:        <td><%= localize(movie.release_date, format: :long) %></td>
+    24:        <td><%= link_to "#{translate 'actions.show'}", movie %></td>
+    25:        <td><%= link_to "#{translate 'actions.edit'}", edit_movie_path(movie) %></td>
+    26:        <td><%= link_to "#{translate 'actions.destroy'}", movie, method: :delete, data: { confirm: "#{translate 'confirm'}" } %></td>
+  
+app/views/movies/index.html.erb:23
+app/views/movies/index.html.erb:18
+Started GET "/movies/" for 127.0.0.1 at 2019-12-03 22:49:29 -0300
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1825)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 2318)
+
+
+  
+ActionView::Template::Error (Object must be a Date, DateTime or Time object. nil given.):
+    20:        <td><%= movie.name %></td>
+    21:        <td><%= movie.director %></td>
+    22:        <td><%= movie.run_time %></td>
+    23:        <td><%= localize(movie.release_date, format: :long) %></td>
+    24:        <td><%= link_to "#{translate 'actions.show'}", movie %></td>
+    25:        <td><%= link_to "#{translate 'actions.edit'}", edit_movie_path(movie) %></td>
+    26:        <td><%= link_to "#{translate 'actions.destroy'}", movie, method: :delete, data: { confirm: "#{translate 'confirm'}" } %></td>
+  
+app/views/movies/index.html.erb:23
+app/views/movies/index.html.erb:18
+Started GET "/" for 127.0.0.1 at 2019-12-03 22:49:43 -0300
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1901)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 2281)
+
+
+  
+ActionView::Template::Error (Object must be a Date, DateTime or Time object. nil given.):
+    20:        <td><%= movie.name %></td>
+    21:        <td><%= movie.director %></td>
+    22:        <td><%= movie.run_time %></td>
+    23:        <td><%= localize(movie.release_date, format: :long) %></td>
+    24:        <td><%= link_to "#{translate 'actions.show'}", movie %></td>
+    25:        <td><%= link_to "#{translate 'actions.edit'}", edit_movie_path(movie) %></td>
+    26:        <td><%= link_to "#{translate 'actions.destroy'}", movie, method: :delete, data: { confirm: "#{translate 'confirm'}" } %></td>
+  
+app/views/movies/index.html.erb:23
+app/views/movies/index.html.erb:18
+Started GET "/" for 127.0.0.1 at 2019-12-03 22:50:14 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 21.8ms | Allocations: 7933)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 1.0ms | Allocations: 12177)
+
+
+  
+ActionView::Template::Error (Object must be a Date, DateTime or Time object. nil given.):
+    20:        <td><%= movie.name %></td>
+    21:        <td><%= movie.director %></td>
+    22:        <td><%= movie.run_time %></td>
+    23:        <td><%= localize(movie.release_date, format: :long) %></td>
+    24:        <td><%= link_to "#{translate 'actions.show'}", movie %></td>
+    25:        <td><%= link_to "#{translate 'actions.edit'}", edit_movie_path(movie) %></td>
+    26:        <td><%= link_to "#{translate 'actions.destroy'}", movie, method: :delete, data: { confirm: "#{translate 'confirm'}" } %></td>
+  
+app/views/movies/index.html.erb:23
+app/views/movies/index.html.erb:18
+Started GET "/" for 127.0.0.1 at 2019-12-03 22:50:15 -0300
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 21.4ms | Allocations: 1945)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.5ms | Allocations: 2358)
+
+
+  
+ActionView::Template::Error (Object must be a Date, DateTime or Time object. nil given.):
+    20:        <td><%= movie.name %></td>
+    21:        <td><%= movie.director %></td>
+    22:        <td><%= movie.run_time %></td>
+    23:        <td><%= localize(movie.release_date, format: :long) %></td>
+    24:        <td><%= link_to "#{translate 'actions.show'}", movie %></td>
+    25:        <td><%= link_to "#{translate 'actions.edit'}", edit_movie_path(movie) %></td>
+    26:        <td><%= link_to "#{translate 'actions.destroy'}", movie, method: :delete, data: { confirm: "#{translate 'confirm'}" } %></td>
+  
+app/views/movies/index.html.erb:23
+app/views/movies/index.html.erb:18
+Started GET "/" for 127.0.0.1 at 2019-12-03 22:51:29 -0300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 21.3ms | Allocations: 7272)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 1506ms (Views: 1498.7ms | ActiveRecord: 0.9ms | Allocations: 1840764)
+
+
+Started DELETE "/movies/1" for 127.0.0.1 at 2019-12-03 22:51:37 -0300
+Processing by MoviesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"6Rg4aTI101slkNJXhcA/98aV5RD/sm5qfaRDEySIb0IZ2GT+uzJWGKCGUh2pCVPxaUpx/8u8TKmHRwhYLOu4cw==", "id"=>"1"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:67:in `set_movie'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/movies_controller.rb:57:in `destroy'
+  [1m[36mMovie Destroy (0.4ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/movies_controller.rb:57:in `destroy'
+  [1m[35m (10.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/movies_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 23ms (ActiveRecord: 11.6ms | Allocations: 4179)
+
+
+Started GET "/movies" for 127.0.0.1 at 2019-12-03 22:51:37 -0300
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1439)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 167ms (Views: 165.5ms | ActiveRecord: 0.2ms | Allocations: 265696)
+
+
+Started DELETE "/movies/2" for 127.0.0.1 at 2019-12-03 22:51:39 -0300
+Processing by MoviesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"L0taDkdeTL3SRN0yGHbPV0cCL945eBYVwjDfEXyRVTbfiwaZzlnJ/ldSXXg0v6NR6N27MQ12NNY405RadPKCBw==", "id"=>"2"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:67:in `set_movie'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/movies_controller.rb:57:in `destroy'
+  [1m[36mMovie Destroy (0.3ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/movies_controller.rb:57:in `destroy'
+  [1m[35m (13.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/movies_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 21ms (ActiveRecord: 13.7ms | Allocations: 3659)
+
+
+Started GET "/movies" for 127.0.0.1 at 2019-12-03 22:51:39 -0300
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1229)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 178ms (Views: 176.5ms | ActiveRecord: 0.2ms | Allocations: 252953)
+
+
+Started DELETE "/movies/3" for 127.0.0.1 at 2019-12-03 22:51:41 -0300
+Processing by MoviesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"SwmzLFV4rZXqsIQ65kS1huWtNUyVYC2xdRGKwfg4sku7ye+73H8o1m+mBHDKjdmASnKho6FuD3KP8sGK8Ftleg==", "id"=>"3"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:67:in `set_movie'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/movies_controller.rb:57:in `destroy'
+  [1m[36mMovie Destroy (0.6ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/movies_controller.rb:57:in `destroy'
+  [1m[35m (13.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/movies_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/movies
+Completed 302 Found in 21ms (ActiveRecord: 14.2ms | Allocations: 3688)
+
+
+Started GET "/movies" for 127.0.0.1 at 2019-12-03 22:51:42 -0300
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1031)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 151ms (Views: 149.8ms | ActiveRecord: 0.1ms | Allocations: 252770)
+
+
+Started GET "/movies" for 127.0.0.1 at 2019-12-03 22:51:51 -0300
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1411)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 156ms (Views: 153.4ms | ActiveRecord: 0.2ms | Allocations: 253939)
+
+
+Started GET "/movies" for 127.0.0.1 at 2019-12-03 22:52:09 -0300
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1400)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 166ms (Views: 164.0ms | ActiveRecord: 0.2ms | Allocations: 253912)
+
+
+Started GET "/movies?locale=pt-BR" for 127.0.0.1 at 2019-12-03 22:52:29 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"locale"=>"pt-BR"}
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 984)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 142ms (Views: 138.2ms | ActiveRecord: 0.3ms | Allocations: 253086)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2019-12-03 22:52:47 -0300
+Processing by MoviesController#new as HTML
+  Rendering movies/new.html.erb within layouts/application
+  Rendered movies/_form.html.erb (Duration: 11.4ms | Allocations: 4409)
+  Rendered movies/new.html.erb within layouts/application (Duration: 13.1ms | Allocations: 4884)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 148ms (Views: 146.6ms | ActiveRecord: 0.0ms | Allocations: 256526)
+
+
+Started POST "/movies" for 127.0.0.1 at 2019-12-03 22:53:49 -0300
+Processing by MoviesController#create as HTML
+  Parameters: {"authenticity_token"=>"llPvvFfx5/gRCw9UrxvW9LDOBgTfypSrfyC4U5N3NCTTtDbY5vqArv6r1nei+wiJMH2pp7svVOXnabT1+JI8UQ==", "movie"=>{"name"=>"Donnie Darko", "director"=>"Richard Kelly", "run_time"=>"1h48m", "release_date"=>"2019-01-19"}, "commit"=>"Criar Filme"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/movies_controller.rb:30:in `block in create'
+  [1m[36mMovie Create (2.4ms)[0m  [1m[32mINSERT INTO "movies" ("name", "director", "run_time", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Donnie Darko"], ["director", "Richard Kelly"], ["run_time", "1h48m"], ["release_date", "2019-01-19"], ["created_at", "2019-12-04 01:53:49.902392"], ["updated_at", "2019-12-04 01:53:49.902392"]]
+  ↳ app/controllers/movies_controller.rb:30:in `block in create'
+  [1m[35m (11.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/movies_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/movies/4
+Completed 302 Found in 36ms (ActiveRecord: 14.0ms | Allocations: 3890)
+
+
+Started GET "/movies/4" for 127.0.0.1 at 2019-12-03 22:53:49 -0300
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:67:in `set_movie'
+  Rendering movies/show.html.erb within layouts/application
+  Rendered movies/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 573)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 161ms (Views: 158.7ms | ActiveRecord: 0.3ms | Allocations: 252998)
+
+
+Started GET "/movies" for 127.0.0.1 at 2019-12-03 22:53:53 -0300
+Processing by MoviesController#index as HTML
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1204)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 141ms (Views: 140.3ms | ActiveRecord: 0.2ms | Allocations: 252782)
+
+
+Started GET "/movies?locale=en" for 127.0.0.1 at 2019-12-03 22:54:05 -0300
+Processing by MoviesController#index as HTML
+  Parameters: {"locale"=>"en"}
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:18
+  Rendered movies/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1279)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 134ms (Views: 132.7ms | ActiveRecord: 0.2ms | Allocations: 252854)
+
+
